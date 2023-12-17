@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% extends 'base.html' %} {% block content %} {% load static %} {% load humanize %}
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <!-- Bootstrap core CSS -->
+
+        <link href="{% static 'web_app/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+        <!-- Additional CSS Files -->
+        <link rel="stylesheet" href="{% static 'web_app/assets/css/fontawesome.css' %}" />
+        <link rel="stylesheet" href="{% static 'web_app/assets/css/tooplate-main.css' %}" />
+        <link rel="stylesheet" href="{% static 'web_app/assets/css/owl.css' %}" />
+        <link href="{% static 'web_app/assets/css/styles.css' %}" rel="stylesheet" />
+
+        <style>
+            /* 특정 페이지에서 검색창 숨기기 */
+            .page-specific .search {
+                display: none;
+            }
+
+            .used-books {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin-left: 110px;
+                margin-right: 110px;
+                margin-bottom: 50px;
+            }
+
+            .used-book {
+                flex: 0 0 calc(33.33% - 50px);
+                background-color: #f5f5f5;
+                padding: 20px;
+                margin: 10px;
+                margin-bottom: 35px;
+                border: 1px solid #e0e0e0;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+
+            /* .ex-btn {
+                position: fixed;
+                top: 70%;
+                right: 30px;
+                transform: translateY(-50%);
+                z-index: 9999; 
+            }
+
+            .ex-btn-d {
+                background-color: #62903e;
+                color: white;
+                padding: 10px 20px;
+                cursor: pointer;
+            } */
+
+
+
+        </style>
+    </head>
+    <body class="page-specific">
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <div class="line-dec"></div>
+                        <h1>내 블로그</h1>
+                        * 나의 공부기록을 담는 블로그.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+                    <div class="d-flex">
+                        <div class="u-cate">
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <label for="{{ category_form.category.id_for_label }}"></label>
+                                <select
+                                    name="{{ category_form.category.name }}"
+                                    id="{{ category_form.category.id_for_label }}"
+                                    style="padding: 8px 15px;"
+                                >
+                                    {% for value, label in category_form.category.field.choices %}
+                                    <option value="{{ value }}">{{ label }}</option>
+                                    {% endfor %}
+                                </select>
+                                <button class="all-btn" type="submit" style="background-color: #62903e;">카테고리</button>
+                            </form>
+                        </div>
+                            <div class="search-btn2">
+                                <form method="get" action="{% url 'search' %}" >
+                                    {% csrf_token %}
+                                    <input type="text" name="search_query" placeholder="검색하기" class="used-search"/>
+                                    <button type="submit" class="all-btn" style="background-color: #62903e">검색</button>
+                                </form>
+                            </div>
+                                <a href="{% url 'used_up' %}" class="up-btn">
+                                    <button type="button" class="all-btn" style="background-color: #62903e">
+                                        글쓰기
+                                    </button>
+                                </a>
+                                <!-- <a href="{% url 'expage' %}">
+                                    <button type="button" class="all-btn" style="background-color: #62903e">업로드 예시 보기!</button>
+                    
+                                </a> -->
+                        </div>
+                    </div>
+                </div>
+
+        <br />
+        <div class="book_card">
+            {% for used_book in used_books %}
+            <a href="{% url 'used_detail' used_book.id %}">
+                <div class="book_card_back">
+                    <h2 class="book-title">{{ used_book.title }}</h2>
+                    <p style="color: #484848">카테고리: {{used_book.category}}</p>
+                    <img src="{{ used_book.image.url }}" class="book_image" style="width:9rem;"">
+                    <p class="book-amount" style="color: rgb(54, 54, 220)">
+                        <b>이해도 {{ used_book.price|intcomma }} %</b>
+                    </p>
+                    <p>작성자: {{used_book.user}}</p>
+                   
+                    <p>{{ used_book.description|truncatechars:60 }}</p>
+                    
+                    {% comment %} <p>날짜: {{ used_book.date|date:"Y년 m월 d일" }}</p> {% endcomment %}
+
+                    <div class="book-actions">
+                        <a href="{% url 'used_detail' used_book.id %}" class="all-btn" role="button">상세보기</a>
+                    </div>
+                    </div>
+            </a>
+            {% empty %}
+            <p>아직 업로드된 중고서적이 없습니다.</p>
+            {% endfor %}
+        </div>
+        <div class="container-fluid align-items-center justify-content-center d-flex">
+            <div class="pagination" style="text-align: center;">
+                <span class="step-links">
+
+                {% if used_books.has_previous %} <!-- Change variable name to `used_books` -->
+                    <!-- ... -->
+                {% endif %}
+        
+                {% for i in used_books.paginator.page_range %}
+                    {% if i == 1 or i == used_books.paginator.num_pages or i > used_books.number|add:'-3' and i < used_books.number|add:'3' %}
+                        {% if used_books.number == i %}
+                            <span class="current"><button class="btn-num">{{ i }}</button></span>
+                        {% else %}
+                            <a href="?page={{ i }}"><button class="btn-unnum">{{ i }}</button></a>
+                        {% endif %}
+                    {% elif i == used_books.number|add:'-3' or i == used_books.number|add:'3' %}
+                        <span class="ellipsis">···</span>
+                    {% endif %}
+                {% endfor %}
+        
+                {% if used_books.has_next %} <!-- Change variable name to `used_books` -->
+                    <!-- ... -->
+                {% endif %}
+            </span>
+        </div>
+        </div>
+        <br>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#id_search').on('input', function () {
+                    $('#searchForm').submit();
+                });
+            });
+        </script>
+    </body>
+    {% endblock %}
+</html>

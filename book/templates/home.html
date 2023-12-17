@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% extends 'base.html' %} {% block content %} {% load static %}
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+
+        <title>My Blog</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="{% static 'web_app/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+
+        <!-- Additional CSS Files -->
+        <link rel="stylesheet" href="{% static 'web_app/assets/css/fontawesome.css' %}" />
+        <link rel="stylesheet" href="{% static 'web_app/assets/css/tooplate-main.css' %}" />
+        <link rel="stylesheet" href="{% static 'web_app/assets/css/owl.css' %}" />
+        <link rel="stylesheet" href="{% static 'web_app/assets/css/styles.css' %}" />
+
+        <link rel="stylesheet" href="{% static 'web_app/assets/css/styles.css' %}" />
+
+    </head>
+           <div class="banner">
+            <div class="slide">
+                <img src="../images/banner01.jpg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="../images/banner1.png" alt="" />
+            </div>
+            <div class="slide">
+                <img src="../images/banner2.png" alt="" />
+            </div>
+        </div>
+
+        <div class="slider-dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+       
+      </div>
+<br><br><br>
+        <div class="subscribe-form">
+            <div class="container">
+                    <div class="container">
+                            <img src="{% static 'web_app/assets/images/H-logo.png' %}" width="40px">
+                            <br><br>
+                            <p>My blog</p>
+                            
+                            </div>
+                          </div>
+                        </div>
+            </div>
+        </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script>
+            $('.building-link').click(function () {
+                $('#building-name').html($(this).data('name'));
+                $('#building-description').html($(this).data('description'));
+                $('#building-img').src($(this).data('img'));
+            });
+        </script>
+
+        <script>
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide');
+            const slideCount = slides.length;
+            const dots = document.querySelectorAll('.dot');
+
+            function showSlide(n) {
+                slides.forEach((slide) => (slide.style.display = 'none'));
+                slides[n].style.display = 'block';
+
+                dots.forEach((dot) => dot.classList.remove('active'));
+                dots[n].classList.add('active');
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slideCount;
+                showSlide(currentSlide);
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                showSlide(currentSlide);
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                showSlide(currentSlide);
+                setInterval(nextSlide, 5000); // 5초마다 자동 슬라이드
+
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        showSlide(index);
+                        currentSlide = index;
+                    });
+                });
+            });
+        </script>
+
+      
+
+        {% endblock %}
+    </body>
+</html>

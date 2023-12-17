@@ -1,0 +1,9 @@
+
+{% load static %}
+<!-- <div class="multi-file-input">
+    <input type="file" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %} multiple>
+</div> -->
+
+<div class="multi-file-input">
+    <input type="file" name="{{ widget.name }}{% if widget.attrs.multiple %}[]" multiple{% endif %}" accept="image/*" {% include "django/forms/widgets/attrs.html" %}>
+</div>

@@ -1,0 +1,45 @@
+{% extends 'admin_base.html' %}
+
+{% block content %}
+<a href="{% url 'create' %}" style="margin-left: 80%;" class="btn btn-info" role="button">Create</a>
+<hr>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+       
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Image</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+        {% for book in book %}
+      <tr>
+        <td>{{book.name}}</td>
+        <td>{{book.auther}}</td>
+        <td><img src = "{{book.image.url}}" width="80px"></td>
+        <td><a href="" class="btn btn-info" role="button">Edit</a></td>
+        <td><a href="delete/{{book.id}}" class="btn btn-danger" role="button">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

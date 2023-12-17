@@ -1,0 +1,962 @@
+body {
+    font-family: Arial;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.example {
+    display: flex;
+    align-items: center;
+}
+
+form.example input[type='text'] {
+    align-items: center;
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid rgb(61, 61, 61);
+    width: 400px;
+    background: #f7f6f6;
+}
+
+/* 검색 */
+form.example button {
+    width: 20%;
+    padding: 10px;
+    background: #daf4ca;
+    color: #3c4537;
+    font-size: 17px;
+    border: 1px solid #3c4537;
+    cursor: pointer;
+}
+
+form.example button:hover {
+    background: #afd796;
+}
+
+form.example::after {
+    content: '';
+    clear: both;
+    display: table;
+}
+/* 드롭다운 메뉴의 너비 조절 */
+.navbar-dark .navbar-nav .nav-link {
+    color: #000000; /* 드롭다운 텍스트 색상 */
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus {
+    color: #ffc107; /* 드롭다운 텍스트 색상 - hover나 focus 상태일 때 */
+}
+
+.dropdown-menu {
+    max-width: max-content;
+    min-width: max-content;
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+    background-color: #2e3a5e;
+}
+
+.dropdown-menu a {
+    display: block; /* 가로폭 전체로 확장 */
+    padding: 10px 30px; /* 내부 여백 설정 (필요에 따라 조절) */
+    color: #fff;
+    text-align: center;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a:focus {
+    background-color: #ffc13d; /* 드롭다운 메뉴 항목 hover나 focus 상태일 때 배경색 */
+    color: #2e3a5e; /* 드롭다운 메뉴 항목 hover나 focus 상태일 때 텍스트 색상 */
+}
+a.dropdown-item {
+    font-size: 16px;
+    /* background-color: #ccc; */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Adjust the width to fit four items in a row */
+    /* margin: 10px; Add some margin between items */
+    white-space: nowrap;
+}
+.menu-section {
+    padding: 0 500px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.menu-section.jung a {
+    display: inline-block;
+    margin-right: 10px; /* 각 항목 사이의 간격 조절 */
+    font-size: 20px; /* 글씨 크기 */
+    color: #007bff; /* 글씨 색상 */
+    font-weight: bold;
+}
+
+/* 메뉴 섹션 가로배치 */
+.menu-sections {
+    display: flex;
+    flex-direction: loc; /* 가로로 배치 */
+}
+
+.book_card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 14em;
+    margin-bottom: 50px;
+}
+
+.book_card_back {
+    flex: 0 0 calc(33.33% - 50px);
+    background-color: #f5f5f5;
+    padding: 20px;
+    margin: 10px;
+    margin-bottom: 35px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.book-title:hover {
+    text-decoration: underline;
+}
+.book-title {
+    color: #000000;
+    font-size: 18px;
+    margin: 2px 0;
+}
+
+.book_img:hover {
+    border: 1px solid #000000;
+}
+.book_img {
+    margin-bottom: 10px;
+    width: 60%;
+    height: auto;
+}
+
+.book-actions {
+    margin-top: 20px;
+}
+.centered-div {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+}
+.center-text {
+    text-align: center;
+    color: #000000;
+}
+
+.centered-container {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; 
+    text-align: center;
+    min-height: 100vh; */
+}
+
+.add_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.book-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.book-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.book-description {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    padding-left: 4em;
+    margin-left: 15%;
+}
+
+/* .book-description,
+.book-image,
+.book-details {
+    margin: 25px;
+} */
+
+/* .book-image {
+    text-align: center;
+} */
+.book-iamge .bookimg {
+    width: 300px;
+    border-radius: 3px;
+    margin-right: 5%;
+}
+
+.book-details {
+    /* flex: 1;
+    text-align: right;
+    padding-right: 2em;
+    margin-left: 2em; */
+    /* margin-left: 3%; */
+    margin: 3%;
+}
+.book-details hr {
+    /* margin-left: 0em; */
+    /* flex: 1; */
+    /* text-align: right; */
+    /* padding-right: 2em;  */
+    /* margin-left: 2em; */
+}
+.d-hr {
+    /* width: 1000px; */
+    padding-right: 150%;
+    /* margin-left: 0em; */
+}
+
+.price_left {
+    text-align: left;
+    margin-left: 20px;
+}
+
+.book-box {
+    float: left;
+    margin-left: 30em;
+    margin-right: 10em;
+}
+
+.clearfix::after {
+    content: '';
+    display: table;
+    /* clear: both; */
+}
+
+.clearfix {
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(243, 238, 166);
+    padding: 20px;
+}
+.clearfix-text {
+    margin-top: 4px;
+}
+
+.btn-num {
+    padding: 5px 12px;
+    /* border: none; */
+    border-radius: 100%;
+    background-color: #444444;
+    border: 1px solid black;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+}
+.btn-unnum {
+    /* border: none; */
+    color: #000000;
+    background-color: #fff;
+    font-size: 16px;
+    padding: 0px 7px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+}
+.btn-r_l {
+    padding: 3px 10px;
+    /* border: none; */
+    border-radius: 100%;
+    background-color: #ffffff;
+    border: 1.5px solid rgb(136, 136, 136);
+    color: rgb(136, 136, 136);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.card-text {
+    margin: 1em 24%;
+}
+
+/* add css */
+.input-container {
+    display: inline-block;
+    margin: 100px;
+    margin-top: 0px;
+    background-color: #18288d;
+    padding: 4px;
+    border-radius: 6px;
+}
+.centered-container p {
+    color: #fff;
+    padding-right: 60px;
+    /* margin-left: 0;
+margin-right: 70%; */
+}
+
+.form-control {
+    width: 300px;
+    padding: 10px;
+    border: none;
+}
+
+/* home css */
+.map {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    max-width: 50%; /* 원하는 최대 가로폭 설정 */
+    margin: 10px auto;
+    padding: 30px 40px;
+    background-color: #18288d;
+    border-radius: 10px;
+}
+/* add css*/
+.input-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px; /* 원하는 간격으로 조정 */
+}
+
+.input-cell input {
+    width: 100%; /* 입력 칸의 너비를 100%로 설정하여 전체 폭을 사용합니다. */
+}
+
+.label-cell {
+    font-size: 17px;
+    background-color: #edf3ff; /* 배경색을 설정하세요 */
+    padding: 10px; /* 원하는 여백을 설정하세요 */
+    border-left: 1px solid #ddd; /* 왼쪽 테두리 */
+    border-right: 1px solid #ddd; /* 오른쪽 테두리 */
+    border-top: 1px solid #ddd; /* 위 테두리 제거 */
+}
+
+.label-cell label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-container p {
+    margin-bottom: 15px; /* 레이블과 입력 칸 사이 간격 조정 */
+}
+
+.add_btn {
+    text-align: right; /* 버튼을 오른쪽에 정렬 */
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.map-content {
+    flex: 1;
+}
+
+.map iframe {
+    display: flex;
+    width: 100%;
+    max-width: 350px; /* 원하는 최대 가로폭 설정 */
+    height: auto;
+    max-height: 300px;
+    margin: 1px;
+    background-color: #ffc107;
+    padding: 5px;
+}
+
+.map p {
+    display: flex;
+    flex: 1;
+    text-align: center;
+    border: 5px solid #ffc107; /* 테두리 스타일 및 색상 설정 */
+    color: #feffef;
+    font-weight: bold;
+    width: 300px;
+    padding: 40px;
+    line-height: 1.2;
+}
+
+.map-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 5%;
+}
+
+.map-container iframe {
+    width: 500px;
+    height: 350px;
+    border: 0;
+}
+
+.info p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.cart {
+    width: 100%;
+    margin: auto;
+    /* padding: 30px; */
+    /* background-color: #f7f7f7; */
+}
+
+.cart__information {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.cart__list {
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+.cart__list thead {
+    /* background-color: rgb(50, 115, 205); */
+    background-color: #f5f5f5;
+}
+
+.cart__list th,
+.cart__list td {
+    color: #000000;
+
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.cart__list th:first-child,
+.cart__list td:first-child {
+    width: 5%;
+}
+
+.cart__list th:nth-child(2),
+.cart__list td:nth-child(2) {
+    width: 15%;
+}
+
+.cart__list th:nth-child(3),
+.cart__list td:nth-child(3) {
+    width: 20%;
+}
+
+.cart__list th:nth-child(4),
+.cart__list td:nth-child(4) {
+    width: 20%;
+}
+
+.cart__list th:nth-child(5),
+.cart__list td:nth-child(5) {
+    width: 15%;
+}
+
+.cart__list th:last-child,
+.cart__list td:last-child {
+    width: 5%;
+}
+
+.cart__list__option {
+    padding: 10px;
+}
+
+.cart__list__option p {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.cart__list__option p::after {
+    /* content: ''; */
+    width: 90%;
+    height: 1px;
+    background-color: #e0e0e0;
+    left: 0;
+    top: 37px;
+    position: absolute;
+}
+
+.cart__list__optionbtn {
+    background-color: white;
+    font-size: 12px;
+    border: 1px solid #e0e0e0;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.cart__list__orderbtn {
+    background-color: rgb(139, 187, 255);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.cart__list__smartstore {
+    color: gray;
+}
+
+.cart__bigorderbtn {
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.cart__bigorderbtn.left {
+    background-color: white;
+    border: 1px solid lightgray;
+}
+
+.cart__bigorderbtn.right {
+    background-color: rgb(50, 115, 205);
+    color: white;
+    border: none;
+}
+
+.cart__mainbtns {
+    text-align: center;
+}
+
+.my_info {
+    text-align: center; /* 가운데 정렬 */
+}
+
+.my_info .my_info_cart,
+.my_info .my_info_heart {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+/* 찜 */
+
+.wishlist__information {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+/* Add general styling for the wishlist page */
+.wishlist__information ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.list-table {
+    width: 100%;
+    margin-top: 40px;
+    position: relative;
+}
+.list-table thead th {
+    height: 40px;
+    border-top: 2px solid rgb(50, 115, 205);
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+    font-size: 17px;
+    text-align: left;
+    /* background-color: #f5f5f5; */
+    color: #050505;
+}
+.list-table tbody td {
+    text-align: left;
+    padding: 50px 0;
+    border-bottom: 1px solid #ccc;
+}
+.bak_item {
+    width: 100%;
+    height: 170px;
+    margin-top: 20px;
+}
+
+.list-table th:nth-child(1) {
+    width: 10%; /* Set the desired width for the first th element */
+}
+
+.list-table th:nth-child(2) {
+    width: 15%; /* Set the desired width for the second th element */
+}
+
+.list-table th:nth-child(3) {
+    width: 30%; /* Set the desired width for the third th element */
+}
+
+.list-table th:nth-child(4) {
+    width: 10%; /* Set the desired width for the fourth th element */
+}
+.list-table th:nth-child(5) {
+    width: 5%; /* Set the desired width for the fourth th element */
+}
+
+.b-info{
+    align-items: center;
+    margin: 1% 4%;
+}
+.b-info .book-image {
+    display: flex;
+    justify-content: center;
+    margin-left: 2%;
+}
+
+.pick-btn button {
+    border: 1.5px solid #18288d;
+    color:#18288d;
+    background-color: white;
+    margin: 5% 10%;
+    width: 120%;
+}
+.book-buy-btn button{
+    border: 1.5px solid #18288d;
+    color:white;
+    background-color: #18288d;
+    margin-left: 10%;
+    width: 120%;
+}
+.recall-btn button{
+    /* border: 1.5px solid #18288d84; */
+    color:white;
+    background-color: rgb(255, 200, 0);;
+    margin-left: 10%;
+    width: 120%;
+}
+/* 픽업 구매 */
+.pick-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15%;
+}
+.pick_place {
+    align-items: center;
+    width: 110%;
+    margin: 0 20px 20px 20px;
+    padding: 2% 5%;
+    border-radius: 20px;
+    border: 3px solid #18288dbb;
+    flex: 2;
+}
+.pick_place p {
+    font-size: 20px;
+}
+.pick-info {
+    margin: 25px;
+    padding: 0 20px;
+}
+.bag-container {
+    padding: 5px 0 0 10%;
+}
+.pick-hr {
+    width: 110%;
+    margin: 15px 20px;
+}
+
+.pick_buy_box {
+    flex: 1;
+    align-items: center;
+    width: 50%;
+    height: 40%;
+    margin: 10% 20px 20px 15%;
+    /* padding: 25px 30px; */
+    border-radius: 20px;
+    border: 3px solid #18288dbb;
+}
+.pick_buy_box_won {
+    padding: 20px;
+    margin-bottom: 10%;
+}
+
+.won_box {
+    display: flex;
+    justify-content: space-between;
+}
+.pick_buy_box_won p {
+    font-size: 16px;
+}
+.pick_buy_box button {
+    width: 100%;
+    color: white;
+    background-color: #18288dbb;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 150px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe; /* Keep the white background color */
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px;
+    text-align: center;
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    text-align: right;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* .modal .modal-content {
+    align-items: center;
+    width: 400px;
+    border-radius: 10px;
+} */
+/* .modal-content {
+} */
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+.button-containe button {
+    padding: 10px 60px;
+}
+
+.modeal_box {
+    text-align: center;
+    padding: 30px 0;
+    background-color: #eeeeee;
+    width: 350px;
+    border-radius: 10px;
+}
+/* .modeal_box b {
+    margin-bottom: 20px;
+} */
+
+.pick-buy-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20%;
+}
+.pick_buy {
+    /* align-items: center; */
+    width: 200%;
+
+    margin: 0 200% 20px 0%;
+    padding: 10% 10%;
+    border-radius: 20px;
+    border: 3px solid #18288dbb;
+    flex: 2;
+}
+.pick_info {
+    display: flex;
+    justify-content: space-between;
+    /* padding-right: 60%; */
+}
+.pb_box {
+    flex: 1;
+    align-items: center;
+    width: 100%;
+    margin: 10% 200% 0 100%;
+    padding: 25px 30px;
+    border-radius: 20px;
+    border: 3px solid #18288dbb;
+}
+.pb_box_won {
+    margin: 10% 0;
+}
+.buy-btn button {
+    width: 100%;
+    color: white;
+    background-color: #18288dbb;
+}
+.won_box .book-img {
+    height: 100px;
+}
+
+/* 중고서적 */
+.u-cate {
+    margin-left: 4%;
+}
+.search-btn2 {
+    margin-left: 33%;
+    margin-right: 1%;
+}
+.used-search {
+    padding: 8px 15px;
+}
+.u-info {
+    margin-left: 20%;
+}
+
+.u-delete button {
+    border: 1.5px solid #62903e;
+    background-color: white;
+    color: #62903e;
+    margin-left: 20%;
+}
+.u-re button {
+    background-color: #62903e;
+    /* color: red; */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+ul,
+li {
+    list-style: none;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 30px;
+    width: 600px;
+    margin: 0 auto;
+}
+.comment > li {
+    margin-top: 20px;
+}
+.comment > li:nth-child(1) {
+    margin: 0px;
+}
+
+.comment-row {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.comment-row {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.comment-row > li:nth-child(2) {
+    flex-shrink: 0;
+    flex-grow: 1;
+    padding-left: 25px;
+    z-index: 1;
+    width: 100%;
+}
+
+.comment-row > li:nth-child(2) {
+    width: 85px;
+}
+
+.comment-form > form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.comment-form > form > h4 {
+    width: 100%;
+    margin: 14px 0 14px 0;
+}
+
+.comment-content {
+    cursor: pointer;
+    word-break: break-all;
+    padding-right: 25px;
+}
+
+.ps_box {
+    display: block;
+    position: relative;
+    width: 80%;
+    height: 51px;
+    border: solid 1px #dadada;
+    padding: 10px 14px 10px 14px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.ps_box > input {
+    outline: none;
+}
+
+.int {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 29px;
+    padding-right: 25px;
+    line-height: 29px;
+    border: none;
+    background: #fff;
+    font-size: 15px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+/* 
+.btn {
+  width: 18%;
+  padding: 18px 0 16px;
+  text-align: center;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  background: #333;
+  color: #fff;
+  font-size: 14px;
+} */
+
+.comment-delete-btn {
+    display: inline-block;
+    margin-left: 7px;
+    cursor: pointer;
+}
+
+.comment-update-input {
+    border: none;
+    border-bottom: 1px solid #333;
+    font-size: 16px;
+    color: #666;
+    outline: none;
+}

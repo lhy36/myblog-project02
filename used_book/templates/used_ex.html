@@ -1,0 +1,45 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="ex_images">
+        <img src="/media/upload_ex/1.png" class="eximg" alt="ex Image">
+  </div>
+</body>
+</html>
+ -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="ex_images">
+        <img src="./upload_ex/1.png" class="eximg" alt="ex Image">
+  </div>
+</body>
+</html> -->
+
+
+<!-- used_ex.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="ex_images">
+    <img src="{% static 'media/upload_ex/1.png' %}" class="eximg" alt="ex Image">
+  </div>
+</body>
+</html>
