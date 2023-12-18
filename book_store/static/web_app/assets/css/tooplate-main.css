@@ -2,6 +2,7 @@
 body {
 	font-family: 'Roboto', sans-serif;
 	transition: all 0.5s;
+	/* background-color:  #C6E7FA; */
 }
 p {
 	margin-bottom: 0px;
@@ -143,23 +144,23 @@ a {
 
 /* Banner Style */
 .slide {
-            margin-top: 50px;
+            margin-top: 150px;
             background-size: cover;
             background-repeat: repeat;
-            padding: 200px 0px;
+            padding: 300px 0px;
             background-position: center center;
             transition: background-image 1s ease-in-out;
 }
 .slide:nth-child(1) {
-  background-image: url('../images/banner-bg.jpg');
+  background-image: url('../images/banner01.png');
     
 }
-.slide:nth-child(2) {
-    background-image: url('../images/banner1.png');
+/* .slide:nth-child(2) {
+    background-image: url('../images/banner01.png');
 }
 .slide:nth-child(3) {
     
-    background-image: url('../images/banner2.png');
+    background-image: url('../images/banner01.png');
 }
 .slider-dots {
     text-align: center;
@@ -174,7 +175,7 @@ a {
     display: inline-block;
     margin: 0 5px;
     cursor: pointer;
-}
+} */
 
 .active {
     background-color: #0f0e0e;
